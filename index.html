@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/style2.css" />
+		<link rel="stylesheet" type="text/css" href="css/style-responsive.css" />	
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+  	
+	<title>NEXUS EDUCATION</title>
+</head>
+<body>
+	<main class="cd-main">
+		<header>
+			<h1>NEXUS <span>EDUCATION</span> </h1>
+			<p>Школа 3D графики в Белгороде</p>
+		</header>
+
+		<ul class="cd-gallery">
+			<li class="cd-item">
+				<a href="item-1.html">
+					<div>
+						<h2>Title 1</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur.</p>
+						<b>Подробнее</b>
+					</div>
+				</a>
+			</li>
+
+			<li class="cd-item">
+				<a href="item-2.html">
+					<div>
+						<h2>Title 2</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur.</p>
+						<b>Подробнее</b>
+					</div>
+				</a>
+			</li>
+
+			<li class="cd-item">
+				<a class="dark-text" href="item-3.html">
+					<div>
+						<h2>Title 3</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur.</p>
+						<b>Подробнее</b>
+					</div>
+				</a>
+			</li>
+
+			<li class="cd-item">
+				<a href="item-4.html">
+					<div>
+						<h2>Title 4</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur.</p>
+						<b>Подробнее</b>
+					</div>
+				</a>
+			</li>
+		</ul> <!-- .cd-gallery -->
+	</main> <!-- .cd-main -->
+
+	<div class="cd-folding-panel">
+		
+		<div class="fold-left"></div> <!-- this is the left fold -->
+		
+		<div class="fold-right"></div> <!-- this is the right fold -->
+		
+		<div class="cd-fold-content">
+			<!-- content will be loaded using javascript -->
+		</div>
+
+		<a class="cd-close" href="#0"></a>
+	</div> <!-- .cd-folding-panel -->
+    <section class="contact" id="contact">
+        <h1>Контакты</h1>
+        <input type="checkbox" name="showForm" id="showForm" class="showForm">
+
+<div class="form">
+  <h2>Форма обратной связи</h2>
+  <form method="get" action="mail.php">
+    <div class="left section">
+      <input type="text" name="name" placeholder="Имя" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="tel" name="tel" placeholder="Телефон" required>
+    </div>
+    <div class="right section">
+      <textarea name="comment" placeholder="Комментарий" required></textarea>
+    </div>
+    <button type="submit" class="sendForm left">Отправить</button>
+    <label for="showForm" class="closeFormLabel left">Закрыть</label>
+  </form>
+</div>
+
+        <div><label for="showForm" class="showFormLabel">Обратная связь</label></div>
+        <hr/>       
+       
+        <div class="content">     
+          
+          <div class="contact-text" >
+          
+         <a href="https://vk.com/nexuseducation">Страница школы в VK</a><br/><br/>
+
+          <a href="https://www.facebook.com/Nexus.education">Страница школы в Facebook</a><br/><br/>
+          
+          <strong>+7 (920) 584-99-54 | +7 (920) 592-26-25</strong><br/><br/>
+
+          e-mail: <strong>nexus-studio@yandex.ru</strong>
+          
+          </div>
+         <div class="cont-text-mobile">
+              <a href="https://vk.com/nexuseducation">Страница школы в VK</a><br/><br/>
+
+          <a href="https://www.facebook.com/Nexus.education">Страница школы в Facebook</a><br/><br/>
+          <a href="tel:+79205849954">+7 (920) 584-99-54</a>
+          <br/> <br/>
+          <a href="tel:+79205922625">+7 (920) 592-26-25</a>
+          <br/><br/>
+
+          e-mail: <strong>nexus-studio@yandex.ru</strong>
+         </div>
+        
+        </div>
+      
+    </section>
+
+
+    <section class="footer">
+    
+      <div class="margin">
+      
+        <div class="menu-footer">
+        
+        <a href="#home">Главная</a>
+        <a href="http://nexus-studio.ru">Блог</a>
+        <a href="https://www.facebook.com/nexus.studio.bel">Facebook</a>
+        
+        </div>
+        
+          <div class="copyright">© 2015. All Rights Reserved nexus-studio.ru</div>        
+
+      </div>
+    
+    
+    </section>  
+     <script>
+    document.getElementById('feedback-form').onsubmit = function(){
+  var http = new XMLHttpRequest(), f = this;
+  http.open("POST", "contacts.php", true);
+  http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  http.send("nameFF=" + f.nameFF.value + "&contactFF=" + f.contactFF.value + "&messageFF=" + f.messageFF.value);
+  http.onreadystatechange = function() {
+    if (http.readyState == 4 && http.status == 200) {
+      alert(http.responseText + ', Ваше сообщение получено.\nНаши специалисты ответят Вам в течении 2-х дней.\nБлагодарим за интерес к нашей фирме!');    
+      f.messageFF.removeAttribute('value');
+      f.messageFF.value='';
+    }
+  }
+  http.onerror = function() {
+    alert('Извините, данные не были переданы');
+  }
+  return false;
+}
+    </script>
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>
